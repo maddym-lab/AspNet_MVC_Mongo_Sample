@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="JDGridReq\**" />
+    <Compile Remove="jtable\**" />
+    <Compile Remove="static_assets\**" />
+    <Content Remove="JDGridReq\**" />
+    <Content Remove="jtable\**" />
+    <Content Remove="static_assets\**" />
+    <EmbeddedResource Remove="JDGridReq\**" />
+    <EmbeddedResource Remove="jtable\**" />
+    <EmbeddedResource Remove="static_assets\**" />
+    <None Remove="JDGridReq\**" />
+    <None Remove="jtable\**" />
+    <None Remove="static_assets\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Bson" Version="3.1.0" />
+    <PackageReference Include="MongoDB.Driver" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\SampleModel1 - Copy\SampleModel1.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\SampleModel1\CreateSampleModel1Form.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

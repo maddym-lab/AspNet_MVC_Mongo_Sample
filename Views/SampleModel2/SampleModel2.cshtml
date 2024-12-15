@@ -1,0 +1,89 @@
+﻿@model IEnumerable<AspNet_MVC_Mongo_Sample.Models.SampleModel2>
+
+@{
+    ViewData["Title"] = "SampleModel2 Page";
+
+}
+
+<div id="SampleModel2TableContainer">
+    <h4>Manage Proposals of any Type (ex: Idea, Change, New Initiative, Digital Transformation, etc.)</h4>
+    <hr />
+    <p>
+        <a asp-action="CreateSampleModel2lForm">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SampleModel1_Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Level)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Business_Case)
+                </th>
+                 <th></th>
+            </tr>
+        </thead>        
+    @foreach(var item in Model)
+    {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>                    
+                    @Html.ActionLink(item.SampleModel1_Id, "SampleModel1", "SampleModel1")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Level)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @{
+                        string p0 = "Problem Statement: " + @item.Business_Case.ProblemStatement;
+                        @Html.DisplayFor(modelItem => p0)
+                        <p></p>
+                        string p1 = "Economic Analysis: " + @item.Business_Case.EconomicAnalysis;
+                        @Html.DisplayFor(modelItem => p1)
+                        <p></p>
+                        string p3 = "Solution Options: " + @item.Business_Case.SolutionOptions;
+                        @Html.DisplayFor(modelItem => p3)
+                        <p></p>
+                    }                  
+                                        
+                    
+                </td>
+                <td>
+                
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>           
+   
+    }
+    </table>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+
+    </script>
+}
+

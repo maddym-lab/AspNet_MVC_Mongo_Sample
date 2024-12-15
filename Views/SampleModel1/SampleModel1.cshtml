@@ -1,0 +1,92 @@
+﻿@model IEnumerable<AspNet_MVC_Mongo_Sample.Models.SampleModel1>
+
+@{
+    ViewData["Title"] = "SampleModel1 Page";
+    
+}
+
+<div id="LoadSampleModel1TableContainer">
+    <h4>Manage SampleModel1(s) and Associated Goals, Objectives and Strategies</h4>
+    <hr />
+    <p>
+        <a asp-action="CreateSampleModel1Form">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Version)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Level)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Goals)
+                </th>
+                 <th></th>
+            </tr>
+        </thead>        
+    @foreach(var item in Model)
+    {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Version)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Level)
+                </td>
+                <td>
+                    <b>Goal:</b>
+                @if (item.Goals is not null){
+                @foreach (var g in item.Goals)
+                {
+                @Html.DisplayFor(modelItem => g.Description)
+                <p></p>        
+                <b>Objectives:</b>
+                            <p></p>
+                            @if (g.objectives is not null)
+                        {
+                        @foreach (var obje in g.objectives)
+                        {
+                                    string paramValue = obje.type + ":" + obje.Description;
+                                    @Html.DisplayFor(modelItem => paramValue)
+                                    <p></p>
+                                    <b>Strategies:</b>
+                                    <p></p>
+                                    @if (obje.stratgies is not null){
+                            @foreach (var strat in obje.stratgies)
+                            {
+                                            string paramValue1 = strat.Description + ":" + strat.status;
+                                            @Html.DisplayFor(modelItem => paramValue1)
+                                <p></p>
+                            }
+                                    }
+                        }
+                        }
+                
+                }
+                }
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>           
+   
+    }
+    </table>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+
+    </script>
+}
+

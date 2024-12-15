@@ -1,0 +1,70 @@
+﻿@model AspNet_MVC_Mongo_Sample.Models.SampleModel1
+
+@{
+    ViewData["Title"] = "Create SampleModel1";
+    
+}
+
+<div id="CreateSampleModel1TableContainer">
+    <h4>Create SampleModel1 and associated goals, objectives & strategies</h4>
+    <p></p>
+    @if (ViewData["Action"].Equals("Create"))
+    {
+        <fieldset>
+            @using (Html.BeginForm("AddSampleModel1", "SampleModel1"))
+            {
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Statement)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Statement)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Level)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Level)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Goals[0].Description, "Goal Description")
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Goals[0].Description)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Goals[0].objectives[0].Description, "Objective Description")
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Goals[0].objectives[0].Description)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Goals[0].objectives[0].type, "Objective Type")
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Goals[0].objectives[0].type)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Goals[0].objectives[0].stratgies[0].Description, "Strategy Description")
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Goals[0].objectives[0].stratgies[0].Description)
+                </div>
+
+                <button>AddSampleModel1</button>
+            }
+        </fieldset>
+    }
+</div>
+
+
+@section scripts {
+    <script type="text/javascript">
+
+    </script>
+}
+

@@ -1,0 +1,64 @@
+﻿@model AspNet_MVC_Mongo_Sample.Models.SampleModel2
+
+@{
+    ViewData["Title"] = "Create SampleModel2";
+    
+}
+
+<div id="CreateSampleModel2TableContainer">
+    <h4>Create a SampleModel2</h4>
+    <p></p>
+    @if (ViewData["Action"].Equals("Create"))
+    {
+        <fieldset>
+            @using (Html.BeginForm("Add", "SampleModel2"))
+            {
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Type)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Type)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Level)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Level)
+                </div>
+                <div title="Enter Business Case Details"></div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Business_Case.ProblemStatement, "Problem Statement/Strategic Context")
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Business_Case.ProblemStatement)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Business_Case.EconomicAnalysis, "Economic Analysis")
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Business_Case.EconomicAnalysis)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Business_Case.SolutionOptions, "Solution Options")
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Business_Case.SolutionOptions)
+                </div>
+
+                
+                <button>AddProposal</button>
+            }
+        </fieldset>
+    }
+</div>
+
+
+@section scripts {
+    <script type="text/javascript">
+
+    </script>
+}
+
